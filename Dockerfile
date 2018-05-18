@@ -39,3 +39,5 @@ RUN rm -rf  /usr/local/freeswitch/conf/directory/*
 RUN touch /usr/local/freeswitch/conf/directory/astpp.xml
 RUN rm -rf  /usr/local/freeswitch/conf/sip_profiles/*
 RUN touch /usr/local/freeswitch/conf/sip_profiles/astpp.xml
+
+RUN /usr/local/freeswitch/bin/freeswitch -nc
