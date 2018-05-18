@@ -40,4 +40,6 @@ RUN touch /usr/local/freeswitch/conf/directory/astpp.xml
 RUN rm -rf  /usr/local/freeswitch/conf/sip_profiles/*
 RUN touch /usr/local/freeswitch/conf/sip_profiles/astpp.xml
 
-RUN /usr/local/freeswitch/bin/freeswitch -nc
+RUN sed -i "s#\FS_USER=freeswitch#FS_USER=root#g" /etc/init.d/freeswitch
+RUN sed -i "s#\FS_GROUP=daemon#FS_GROUP=staff#g" /etc/init.d/freeswitch
+CMD service freeswitch start && tail -F /var/log/fs.log
