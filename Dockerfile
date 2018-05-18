@@ -42,4 +42,4 @@ RUN touch /usr/local/freeswitch/conf/sip_profiles/astpp.xml
 
 RUN sed -i "s#\FS_USER=freeswitch#FS_USER=root#g" /etc/init.d/freeswitch
 RUN sed -i "s#\FS_GROUP=daemon#FS_GROUP=staff#g" /etc/init.d/freeswitch
-CMD service freeswitch start && tail -F /var/log/fs.log
+ENTRYPOINT service freeswitch restart && bash
