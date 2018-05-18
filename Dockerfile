@@ -6,7 +6,7 @@ RUN echo "deb http://files.freeswitch.org/repo/deb/freeswitch-1.6/ jessie main" 
 RUN apt-get update
 RUN apt-get install -y --force-yes freeswitch-video-deps-most
 #RUN apt-get install -y autoconf automake devscripts gawk chkconfig dnsutils sendmail-bin sensible-mda ntpdate ntp g++ git-core curl libjpeg62-turbo-dev libncurses5-dev make python-dev pkg-config libgdbm-dev libyuv-dev libdb-dev libvpx2-dev gettext sudo lua5.1 libxml2 libxml2-dev openssl libcurl4-openssl-dev gettext gcc libldns-dev libpcre3-dev build-essential libssl-dev libspeex-dev libspeexdsp-dev libsqlite3-dev libedit-dev libldns-dev libpq-dev bc
-RUN apt-get install -y autoconf automake devscripts gawk chkconfig dnsutils sendmail-bin sensible-mda ntpdate ntp g++ git-core curl libjpeg62-turbo-dev libncurses5-dev make python-dev pkg-config libgdbm-dev libdb-dev gettext sudo lua5.1 libxml2 libxml2-dev openssl libcurl4-openssl-dev gettext gcc libldns-dev libpcre3-dev build-essential libssl-dev libspeex-dev libspeexdsp-dev libsqlite3-dev libedit-dev libldns-dev libpq-dev bc libtool-bin yasm
+RUN apt-get install -y autoconf automake devscripts gawk chkconfig dnsutils sendmail-bin sensible-mda ntpdate ntp g++ git-core curl libjpeg62-turbo-dev libncurses5-dev make python-dev pkg-config libgdbm-dev libdb-dev gettext sudo lua5.1 libxml2 libxml2-dev openssl libcurl4-openssl-dev gettext gcc libldns-dev libpcre3-dev build-essential libssl-dev libspeex-dev libspeexdsp-dev libsqlite3-dev libedit-dev libldns-dev libpq-dev bc libtool-bin yasm libmyodbc net-tools
 RUN git config --global pull.rebase true
 RUN git clone -b v1.6.19 https://freeswitch.org/stash/scm/fs/freeswitch.git /usr/local/src/freeswitch
 RUN cd /usr/local/src/freeswitch; ./bootstrap.sh -j
