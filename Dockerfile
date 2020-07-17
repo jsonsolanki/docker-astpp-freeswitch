@@ -14,7 +14,7 @@ RUN ln -s /opt/ASTPP/freeswitch/scripts /usr/share/freeswitch/
 RUN cp -rf /opt/ASTPP/freeswitch/sounds/*.wav /usr/share/freeswitch/sounds/en/us/callie
 RUN cp -rf /opt/ASTPP/freeswitch/conf/autoload_configs/* /etc/freeswitch/autoload_configs/
 
-RUN /bin/systemctl start freeswitch
+CMD /etc/init.d/freeswitch start
 RUN /bin/systemctl enable freeswitch
 RUN sed -i "s#max-sessions\" value=\"1000#max-sessions\" value=\"2000#g" /etc/freeswitch/autoload_configs/switch.conf.xml
 RUN sed -i "s#sessions-per-second\" value=\"30#sessions-per-second\" value=\"50#g" /etc/freeswitch/autoload_configs/switch.conf.xml
@@ -27,7 +27,7 @@ RUN touch /etc/freeswitch/directory/astpp.xml
 RUN rm -rf  /etc/freeswitch/sip_profiles/*
 RUN touch /etc/freeswitch/sip_profiles/astpp.xml
 RUN chmod -Rf 755 /usr/share/freeswitch/sounds/en/us/callie
-RUN /bin/systemctl restart freeswitch
+CMD /etc/init.d/freeswitch restart
 RUN /bin/systemctl enable freeswitch
 
-ENTRYPOINT /bin/systemctl freeswitch restart && bash
+ENTRYPOINT CMD /etc/init.d/freeswitch start && bash
